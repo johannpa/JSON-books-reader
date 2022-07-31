@@ -1,5 +1,6 @@
 package com.json.books.reader.jsonBooksReader.json;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -19,9 +20,9 @@ public class BookJsonReader {
 
         File booksJsonfile = new File("src/main/resources/books.json");
 
-        List<Book> books = objectMapper.readValue(booksJsonfile, List.class);
+        List<Book> books = objectMapper.readValue(booksJsonfile, new TypeReference<List<Book>>() {});
 
-        System.out.println(Arrays.asList(books));
+        System.out.println(books);
     }
 
 }
