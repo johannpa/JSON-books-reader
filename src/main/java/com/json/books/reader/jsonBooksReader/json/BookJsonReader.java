@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 public class BookJsonReader {
 
@@ -18,7 +19,7 @@ public class BookJsonReader {
 
         File booksJsonfile = new File("src/main/resources/books.json");
 
-        Book[] books = objectMapper.readValue(booksJsonfile, Book[].class);
+        List<Book> books = objectMapper.readValue(booksJsonfile, List.class);
 
         System.out.println(Arrays.asList(books));
     }
